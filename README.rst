@@ -66,7 +66,10 @@ Caution: Some text editors on Windows, such as Notepad, automatically append a .
 
 `Procfile` is a mechanism for declaring what commands are started when your dynos are run on the Heroku platform.  In this case, we want Heroku to run the webapp startup script for web dynos.
 
-2. Initialize a local git repository, add the files to it, and commit them::
+2. Specify your application's dependencies by using the 'pip freeze' command
+        pip freeze > requirements.txt
+
+3. Initialize a local git repository, add the files to it, and commit them::
 
 	git init
 	git add .
@@ -83,9 +86,10 @@ The commit operation has output similar to the following::
 	create mode 100644 .gitignore
 	create mode 100644 Procfile
 	create mode 100644 app.py
+	create mode 100644 requirements.txt
 
 
-3. Create a new app provisioning stack on Heroku by using the `heroku` command-line client:
+4. Create a new app provisioning stack on Heroku by using the `heroku` command-line client:
 
     heroku create --stack cedar
 
@@ -101,7 +105,7 @@ Note: `empty-winter-343` is a randomly generated temporary name for the app. You
 
     The create command outputs the web URL and git URL for this app. Since you had already created a git repository for this app, the heroku client automatically added the heroku remote repository information to the git configuration.
 
-4. Deploy the app to Heroku:
+5. Deploy the app to Heroku:
 
 	git push heroku master
 
@@ -115,7 +119,7 @@ This command instructs `git` to push the app to the master branch on the heroku 
     To git@heroku.com:empty-winter-343.git
     + 3bcf805...a72152c master -> master (forced update)
 
-5. Open the app in your browser using the generated app URL or by running::
+6. Open the app in your browser using the generated app URL or by running::
 
 	heroku open
 
